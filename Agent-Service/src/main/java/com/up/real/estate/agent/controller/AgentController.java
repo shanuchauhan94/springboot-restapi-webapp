@@ -32,13 +32,14 @@ public class AgentController {
                 .orElseGet(() -> ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ServiceResponse()));
     }
 
-    @GetMapping("/agents/{city}")
-    public ResponseEntity<List<ServiceResponse>> getAllRegisteredAgents(@PathVariable("city") String city) {
+    @GetMapping("/{email}")
+    public ResponseEntity<List<ServiceResponse>> getAllRegisteredAgentsByEmail(@PathVariable("email") String email) {
 
-        List<ServiceResponse> agents = agentService.getAllAgents(city);
+        List<ServiceResponse> agents = agentService.getAllAgents(email);
         if (!CollectionUtils.isEmpty(agents)) {
             return ResponseEntity.ok(agents);
         }
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ArrayList<>());
     }
+
 }

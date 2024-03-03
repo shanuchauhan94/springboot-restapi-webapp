@@ -3,3 +3,18 @@ server:
 spring:
   profiles:
     active: dev
+  datasource:
+    url: jdbc:postgresql://localhost:5432/agentdb
+    username: postgres
+    password: root
+  jpa:
+    database: postgresql
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true

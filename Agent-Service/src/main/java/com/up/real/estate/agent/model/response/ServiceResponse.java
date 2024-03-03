@@ -7,6 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+import java.util.Date;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -14,11 +17,11 @@ import lombok.Setter;
 @JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class ServiceResponse {
 
-    private String agent_Id;
+    private Long agent_Id;
     private String name;
     private String email;
     private Long mobNumber;
-    private int age;
+    private Date dob;
     private Address address;
 
 }
